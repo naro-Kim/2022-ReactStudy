@@ -18,6 +18,7 @@ import React from 'react';
    faArrowRight,
  } from '@fortawesome/free-solid-svg-icons';
  import EachPost from './EachPost';
+ 
  function ShowPostList({ loading, isPost, postList, addPost }) {
    return (
      <>

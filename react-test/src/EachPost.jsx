@@ -3,7 +3,7 @@ import React from 'react';
 
  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
- function EachPost({ replCount, title }) {
+ function EachPost({ title, replCount }) {
    return (
      <EachPostLi>
        <div>
