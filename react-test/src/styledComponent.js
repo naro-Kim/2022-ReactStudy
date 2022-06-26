@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MediaDiv = styled.div`
   margin: 0px auto;
@@ -10,27 +10,17 @@ export const MediaDiv = styled.div`
     width: 100%;
   }
 `;
-export const Header = styled.div`
+export const HeaderDiv = styled.div`
   width: 768px;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family: "Black Han Sans", sans-serif;
+  font-family: 'Black Han Sans', sans-serif;
   position: absolute;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
-`;
-
-export const HeaderDiv = styled.div`
-  width: 768px;
-  height: auto;
-  display: flex;
-  font-size: 25px;
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
 `;
 
 export const TitleLogoDiv = styled.div`
@@ -55,6 +45,7 @@ export const SubHeaderDiv = styled.div`
   font-size: 25px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 `;
 
 export const Main = styled.div`
@@ -72,7 +63,7 @@ export const SlogunSection = styled.div`
 
 export const SlogunBig = styled.span`
   font-size: 40px;
-  font-family: "League Gothic", sans-serif;
+  font-family: 'League Gothic', sans-serif;
 `;
 
 export const SlogunSmall = styled.span`
@@ -100,13 +91,13 @@ export const PostTitleDiv = styled.div`
 export const PostTitle = styled.span`
   margin-top: 10px;
   margin-bottom: 5px;
-  font-family: "Black Han Sans", sans-serif;
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 25px;
 `;
 
 export const PostListDiv = styled.div`
   font-size: 16px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 `;
 
 export const LoadingDiv = styled.div`
@@ -132,7 +123,7 @@ export const PostLink = styled.span`
   margin-left: 5px;
 `;
 export const PostRepl = styled.div`
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 `;
 export const PagingSection = styled.section`
   display: flex;
@@ -151,14 +142,13 @@ export const PagenumberDiv = styled.div`
   border: 1px solid #f39926;
   border-radius: 5px;
 `;
-export const FooterDiv = styled.div`
+export const Footerdiv = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
-
 export const FooterBig = styled.span`
   margin: 5px;
   font-size: 12px;
