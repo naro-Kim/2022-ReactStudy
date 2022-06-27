@@ -11,8 +11,9 @@ const App = () => {
       <Route path="/" element={<Menubar />}>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/movies" element={<Movies />}>
-          <Route path=":movieId" element={<Movie />} />
+          <Route path=":movieId" element={<Movie />} /> 
         </Route>
+        <Route path="*" element={<div>error!</div>}></Route>
       </Route>
     </Routes>
   );
