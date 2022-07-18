@@ -11,17 +11,8 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [isPost, setIsPost] = useState(false);
-  const [postList, setPostList] = useState(initialPostList);
-
-  const addPost = () => {
-    setPostList((postList) => [
-      ...postList,
-      { id: 4, title: '학보, 시사N 대학기자상 취재', replCount: 21 },
-    ]);
-  };
+  const [darkMode, setDarkMode] = useState(true); 
+  
   return (
     <>
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>

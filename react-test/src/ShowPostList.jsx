@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect, useCallback } from 'react';
 import {
   PostSection,
   PostTitleDiv,
@@ -8,8 +8,10 @@ import {
   LoadingDiv,
   LoadingImg,
   PagenumberDiv,
+  CursorDiv,
 } from './styledComponent';
 
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowsRotate,
@@ -17,15 +19,56 @@ import {
   faArrowLeft,
   faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 import EachPost from './EachPost';
-function ShowPostList({ loading, isPost, postList, addPost }) {
+
+const initialPostList = [
+  {id: 1, title: '학보, 시사N 대학기자상 취재' },
+  {id: 2, title: '학보, 시사N 대학기자상 취재' },
+  {id: 3, title: '학보, 시사N 대학기자상 취재' },
+];
+
+function ShowPostList() {
+  const [loading, setLoading] = useState(true);
+  const [isPost, setIsPost] = useState(false);
+  const [postList, setPostList] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://reactapitest.pythonanywhere.com/api/list/?page=1&page_size=10').then(response=>{
+      console.log(response);
+    })
+  }, [])
+
+  const addPost = useCallback(() => {
+    setPostList((postList) => [
+      ...postList,
+      { id: 4, title: '학보, 시사N 대학기자상 취재', replCount: 21 },
+    ]);
+  }, [postList]);
+
+  const navigate = useNavigate();
+  const goWrite = () => {
+    navigate('/write');
+  };
+  /*
+    React Hook, useEffect  
+  */
+  useEffect(() => {
+    setTimeout(() =>{ 
+      setPostList(initialPostList);
+      setLoading(false);
+    }, 200);
+  }, []);
+
   return (
     <>
       <PostSection>
         <PostTitleDiv>
           <FontAwesomeIcon onClick={addPost} icon={faArrowsRotate} />
           <PostTitle>익명게시판</PostTitle>
-          <FontAwesomeIcon icon={faPenToSquare} />
+          <CursorDiv>
+            <FontAwesomeIcon onClick={goWrite} icon={faPenToSquare} />
+          </CursorDiv>
         </PostTitleDiv>
         <PostListDiv>
           {loading ? (
@@ -41,7 +84,7 @@ function ShowPostList({ loading, isPost, postList, addPost }) {
                 <EachPost
                   key={element.id}
                   title={element.title}
-                  replCount={element.replCount}
+                  postID={element.postID}
                 />
               ))}
             </ul>
